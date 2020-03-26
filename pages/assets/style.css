@@ -3,7 +3,7 @@ padding:0;
 margin:0;
 }
 .menu-bar {
-  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
     background-color:lightblue;
     //background-color:#0000;
@@ -20,7 +20,7 @@ margin:0;
     padding:15px;
     width:70px;
 }
-.menu-bar ul li a {
+.menu-bar ul a {
     text-decoration:none;
     //color:#fff;
 }
@@ -29,12 +29,14 @@ margin:0;
     padding:15px;
 }
 .menu-bar ul li:active {
-    //background:yellow;
     padding:15px;
 }
 
 .content {
+    text-align:center;
     padding:50px;
+    margin:2%;
+    background-color:#4BFFFF;
 }
 // card style
 
