@@ -8,6 +8,7 @@
 <body>
 
 
+    <button onclick="toHome()">to home</button>
 <div>
   <form >
     <label for="fname">First Name</label>
@@ -26,10 +27,19 @@
       <option value="syria">Syria</option>
       <option value="egypt">Egypt</option>
     </select>
-    <input onclick=""  type="submit" value="Submit">
+    <input onclick="save()"  type="submit" value="Submit">
   </form>
 </div>
 </body>
+<script>
+    function save() {
+        alert("لا يوجد سيرفر يقوم بحفظ البيانات")
+    }
+    function toHome() {
+        window.location = "home.html"
+        console.log("to home")
+    }
+</script>
 <style>
 @import "assets/login.css"; // هذه لتحميل التنسيق الخاص بالصفحة
 </style>
