@@ -26,6 +26,10 @@ margin:0;
     background:#A2E9FF;
     padding:15px;
 }
+.menu-bar ul li:active {
+    //background:yellow;
+    padding:15px;
+}
 
 .content {
     padding:50px;
