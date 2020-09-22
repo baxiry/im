@@ -1,44 +1,12 @@
 <!DOCTYPE html>
 <html>
-<style>
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #49A5FF;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #5BD3FF;
-}
-
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-top:5%;
-  margin-right:30%;
-  margin-left:30%;
-  margin-bottom:30%;
-}
-</style>
+    <head>
+     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+     <meta content="utf-8" http-equiv="encoding">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
 <body>
 
-<h3>Using CSS to style an HTML Form</h3>
 
 <div>
   <form >
@@ -58,20 +26,13 @@ div {
       <option value="syria">Syria</option>
       <option value="egypt">Egypt</option>
     </select>
-  
-    <input onclick="toHome()"  type="submit" value="Submit">
+    <input onclick=""  type="submit" value="Submit">
   </form>
 </div>
-
 </body>
-<script>
-    function toHome() {
-        //window.location.href = "file:///home/fedora/project/home.html";//"http://www.w3schools.com";
-        // Simulate an HTTP redirect:
-        console.log("hello")
-        window.location.replace("file:///home/fedora/project/home.html");
-        alert("he")
-    }
-</script>
+<style>
+@import "assets/login.css"; // هذه لتحميل التنسيق الخاص بالصفحة
+</style>
+
 </html>
 
