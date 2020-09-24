@@ -3,7 +3,7 @@
      <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
      <meta content="utf-8" http-equiv="encoding">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="assets/style.css"> 
+     <link rel="stylesheet" href="assets/style.css">
  </head>
  <body>    
      <div class="menu-bar" >
@@ -28,11 +28,27 @@
         <p id=text>Architect & Engineer</p> 
     </div>
   </div>
-<style>
+  <div>
+<p>
+
+    I focussed on gopls (and by extension, Go) in order to help quickly iterate on progress in gopls. Hence my goal was/is not "I don't want to support other languages/LSP implementations, ever"; rather, "I'm currently focussing on gopls"
+    there is therefore no particular reason to prefer it over vim-go, vim-lsp, coc.nvim or any of the other related projects. vim-go at least is far more mature in terms of code life. I've not tried vim-lsp with gopls
+    one major reason to consider using govim is if you want to write Vim plugins in Go or simply extend govim. For example, it was trivial to add the GOVIMStringFn command to govim. GOVIMStringFn allows you to call Go standard library string/[]byte/similar functions on text in your buffer, for example you can call strconv.Quote, or regexp.QuoteMeta. Similarly, the addition of the GOVIMMotion function, which allows the user to define motions relative to the AST representation of the buffer, was easy and efficient.
+    whilst there are (large) parts of govim that are language agnostic (because all its doing is talking LSP to gopls), having my stated goal be that govim is Go-specific (for now) feels like the most efficient way to iterate on the progress being made with gopls but also to flush out whether there are any Go-specific bits where the LSP spec itself needs to change. Making govim (or some derivative of it) language agnostic is being tracked in https://github.com/govim/govim/issues/194, but again, this not my primary goal right now
+</p>
+<p>
+
+    I focussed on gopls (and by extension, Go) in order to help quickly iterate on progress in gopls. Hence my goal was/is not "I don't want to support other languages/LSP implementations, ever"; rather, "I'm currently focussing on gopls"
+    there is therefore no particular reason to prefer it over vim-go, vim-lsp, coc.nvim or any of the other related projects. vim-go at least is far more mature in terms of code life. I've not tried vim-lsp with gopls
+    one major reason to consider using govim is if you want to write Vim plugins in Go or simply extend govim. For example, it was trivial to add the GOVIMStringFn command to govim. GOVIMStringFn allows you to call Go standard library string/[]byte/similar functions on text in your buffer, for example you can call strconv.Quote, or regexp.QuoteMeta. Similarly, the addition of the GOVIMMotion function, which allows the user to define motions relative to the AST representation of the buffer, was easy and efficient.
+    whilst there are (large) parts of govim that are language agnostic (because all its doing is talking LSP to gopls), having my stated goal be that govim is Go-specific (for now) feels like the most efficient way to iterate on the progress being made with gopls but also to flush out whether there are any Go-specific bits where the LSP spec itself needs to change. Making govim (or some derivative of it) language agnostic is being tracked in https://github.com/govim/govim/issues/194, but again, this not my primary goal right now
+</p>
+  </div>
+<style >
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 40%;
+  width: 20%;
   margin:5%
 }
 
