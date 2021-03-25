@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<meta name="viewport" content="width=device-width, initial-scale=1.3">
+<meta charset="UTF-8">
+<body>
+
+<h3>حاسبة إدارة رأس المال</h3>
+
+  
+  <input type="number" id="fnumber" name="fnumber" placeholder="سعر الدخول" /><br><br>
+  <input type="number" id="lnumber" name="lnumber" placeholder="وقف الخسارة" /><br><br>
+  <input type="number" id="fonumber" name="fonumber" placeholder="مبلغ المخاطرة"><br><br>
+
+  <button onclick=calculate()> النتيجة </button>
+  
+ <h4 id="r">0</h4>
+ <h4 id="h">0</h4>
+  
+
+
+<script>
+
+let fnumber = document.querySelector('#fnumber')
+let lnumber = document.querySelector('#lnumber')
+
+let fonumber = document.querySelector('#fonumber')
+
+document.querySelector('#r').innerText = "الرافعة المالية    "
+
+document.querySelector('#h').innerText = "حجم الاستثمار      "
+
+function calculate() {
+
+    document.querySelector('#r').innerText = "الرافعة المالية   "
+
+    document.querySelector('#h').innerText = " حجم الاستثمار      "
+
+    let fnum = Number(fnumber.value)
+    let lnum = Number(lnumber.value)
+    let first = 0
+    
+    let biger = 0 
+    if (fnum > lnum ) {
+        biger = fnum
+        first = fnum - lnum
+    } else {
+        biger = lnum
+        first = lnum - fnum
+    }
+    
+    let second = first / biger
+
+    console.log("s", second)
+    
+    let third = second * 100
+
+    console.log( "th; ", third)
+
+    let tnum = 100//Number(tnumber.value) // === 0 ? 60 : Number(tnumber)
+    console.log("tn", tnum)
+    
+    let firsResult = tnum / third 
+
+    console.log("fr", firsResult)
+
+    let fonum = Number(fonumber.value)
+    //console.log(fonum)
+
+    let result = firsResult * fonum
+    console.log(result)
+
+    document.querySelector('#r').innerHTML += " x"+firsResult.toString().split(".")[0];
+
+    document.querySelector('#h').innerHTML += result.toString().split(".")[0]+"$";
+    
+    // console.log(fnum + lnum)
+}
+
+</script>
+</body>
+</html>
