@@ -1,0 +1,11 @@
+{
+  "name": "snake-game",
+  "version": "0.0.1",
+  "description": "just for tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bashery",
+  "license": "MIT"
+}
