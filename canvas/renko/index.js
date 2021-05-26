@@ -17,3 +17,4 @@ for (let i = 210; i<=400; i+=20) {
     ctx.fillRect(i/2, i+i/2, 10, 30)// .fillStyle = 'blue';
     i++;
 }
+
