@@ -1,0 +1,47 @@
+* {
+padding:0;
+margin:0;
+}
+.menu-bar {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color:lightblue;
+
+  position:fixed;
+  width:100%;
+  top:0;
+  text-align:center
+}
+.menu-bar ul {
+    display:inline-flex;
+    list-style:none;
+    //color:#fff;
+
+}
+.menu-bar ul li {
+    //margin:18px;
+    padding:15px;
+    width:70px;
+}
+.menu-bar ul a {
+    text-decoration:none;
+    //color:#fff;
+}
+.menu-bar ul li:hover {
+    background:#A2E9FF;
+    padding:15px;
+}
+.menu-bar ul li:active {
+    padding:15px;
+}
+.content {
+    text-align:center;
+    padding:50px;
+    margin:2%;
+    background-color:#4BFFFF;
+}
+body {
+    padding-top:50px;
+}
+// card style
+
