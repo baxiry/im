@@ -1,7 +1,7 @@
 package main
 
 import (
-	hub "im"
+	"im"
 	"net/http"
 	"sync"
 
@@ -17,7 +17,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, "Could not open websocket connection", 404)
 	}
-	go hub.ServeMessages(conn)
+	go im.ServeMessages(conn)
 }
 
 func main() {

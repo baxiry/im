@@ -1,4 +1,4 @@
-package hub
+package im
 
 import (
 	"fmt"
@@ -15,6 +15,7 @@ var mt sync.Mutex
 func ServeMessages(conn *websocket.Conn) {
 
 	for {
+		fmt.Println("test im pakage")
 
 		i, msg, err := conn.ReadMessage()
 		if err != nil {

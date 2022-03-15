@@ -1,4 +1,4 @@
-module im
+module github.com/bashery/im
 
 go 1.17
 
