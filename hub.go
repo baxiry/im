@@ -14,6 +14,7 @@ func ServeMessages(conn *websocket.Conn) {
 
 	var mt sync.Mutex
 	for {
+		fmt.Println("test im pakage")
 
 		i, msg, err := conn.ReadMessage()
 		if err != nil {
