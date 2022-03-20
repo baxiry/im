@@ -1,9 +1,10 @@
 package main
 
 import (
-	"im"
 	"net/http"
 	"sync"
+
+	"github.com/bashery/im"
 
 	"github.com/gorilla/websocket"
 )
