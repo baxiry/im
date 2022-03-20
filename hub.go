@@ -8,12 +8,11 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-var mt sync.Mutex
-
 //note: income data must be json as `{"event":"","msg":""}`
 // event must be subscribe, unsubscriber, close or msg
 func ServeMessages(conn *websocket.Conn) {
 
+	var mt sync.Mutex
 	for {
 
 		i, msg, err := conn.ReadMessage()
