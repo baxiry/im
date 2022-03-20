@@ -11,6 +11,7 @@ import (
 //note: income data must be json as `{"event":"","msg":""}`
 // event must be subscribe, unsubscriber, close or msg
 func ServeMessages(conn *websocket.Conn) {
+	fmt.Println("version 0.0.2")
 
 	var mt sync.Mutex
 	for {
