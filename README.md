@@ -1,4 +1,7 @@
-# -------------------------------  *مرسال*  ------------------------------------
+ <span style="color:green;font-weight:700;font-size:20px">
+#مرسال
+</span>
+
 # *mersal*
 
 ##### Instant messaging server, easy to use as a server or as a library
