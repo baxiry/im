@@ -5,7 +5,6 @@ import (
 	"sync"
 
 	"github.com/bashery/im"
-
 	"github.com/gorilla/websocket"
 )
 
@@ -22,6 +21,9 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
 	http.HandleFunc("/ws", wsHandler)
+
 	panic(http.ListenAndServe(":8080", nil))
+
 }
