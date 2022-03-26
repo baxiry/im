@@ -1,14 +1,3 @@
-<style>
-.green {
-    color: green;
-    font-weight:700;
-    font-size: 40px;
-}
-</style>
-
-<div class="green">
-*مرسال*
-</div>
 
 # *mersal*  *مرسال*
 
