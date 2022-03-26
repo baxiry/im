@@ -1,8 +1,16 @@
- <span style="color:green;font-weight:700;font-size:20px">
-#مرسال
-</span>
+<style>
+.green {
+    color: green;
+    font-weight:700;
+    font-size: 40px;
+}
+</style>
 
-# *mersal*
+<div class="green">
+*مرسال*
+</div>
+
+# *mersal*  *مرسال*
 
 ##### Instant messaging server, easy to use as a server or as a library
 
