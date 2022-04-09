@@ -39,11 +39,12 @@ Just create a channel and share it between two clients only, this is how you cre
 - [x] websocket
 - [x] Pubsub 
 - [ ] cache message
-- [ ] Unit testing
-- [ ] Qos
 - [ ] ssl
+- [ ] Qos
+- [ ] 100% Unit testing
 
 ### Not goal or maybe later
 - [ ] End-to-end encryption
+- [ ] Peer to Peer Messages
 
 
