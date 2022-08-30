@@ -1,19 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
-	"sync"
 
 	"github.com/bashery/im"
 	"github.com/gorilla/websocket"
 )
 
-var mt sync.Mutex
-
 func wsHandler(w http.ResponseWriter, r *http.Request) {
 	//if r.Header.Get("Origin")!="http://"+r.Host {http.Error(w,"Origin not allowed",-1);return}
 
-	conn, err := websocket.Upgrade(w, r, w.Header(), 2, 2) //1024, 1024)
+	conn, err := websocket.Upgrade(w, r, w.Header(), 1024, 1024)
 	if err != nil {
 		http.Error(w, "Could not open websocket connection", 404)
 	}
@@ -22,6 +20,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
+	fmt.Println("version 0.0.2\nim start at :8080")
 	http.HandleFunc("/ws", wsHandler)
 
 	panic(http.ListenAndServe(":8080", nil))
