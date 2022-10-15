@@ -43,9 +43,6 @@ Just create a channel and share it between two clients only, this is how you cre
 - [ ] Qos
 - [ ] 100% Unit testing
 
-### Not goal 
-- [ ] End-to-end encryption
-- [ ] Peer to Peer Messages
 
 ### License
 Use this library with whatever license you prefer.
