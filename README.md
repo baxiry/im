@@ -10,7 +10,7 @@
 
 create a websocket on browser and send message as json :
 
-to subscribe in a topic (channel) send :
+to subscribe to a topic (channel) send :
 ```json
 {
    "event":"subscribe",
