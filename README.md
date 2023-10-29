@@ -20,7 +20,6 @@ to subscribe to a topic (channel) send :
 ```event``` must be : ```subscribe```, ```unsubscribe```, ```message```,
 
 Later we will add events:  ```reseive```, and```seen```,
-We will also work to achieve quality service ```qos``` .
 
 to send message to channel/topic:
 ```json
@@ -39,8 +38,6 @@ Just create a channel and share it between two clients only, this is how you cre
 - [x] websocket
 - [x] Pubsub 
 - [ ] cache message
-- [ ] ssl
-- [ ] Qos
 - [ ] 100% Unit testing
 
 
