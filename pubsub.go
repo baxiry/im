@@ -7,13 +7,13 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-// Cache stores arbitrary data with expiration time.
+// Cache stores ws.connections.
 type Cache struct {
 	items sync.Map
 	close chan struct{}
 }
 
-// An item represents arbitrary data with expiration time.
+// An item represents ws.connections.
 type item struct {
 	data interface{}
 }
@@ -23,27 +23,24 @@ func NewCache() *Cache {
 	cache := &Cache{
 		close: make(chan struct{}),
 	}
-
 	return cache
 }
 
 // Get gets the value for the given key.
+// key is client id
 func (cache *Cache) Get(key interface{}) (interface{}, bool) {
 	obj, exists := cache.items.Load(key)
 
 	if !exists {
 		return nil, false
 	}
-
 	item := obj.(item)
-
 	return item.data, true
 }
 
 // Set sets a value for the given key with an expiration duration.
 // If the duration is 0 or less, it will be stored forever.
 func (cache *Cache) Set(key interface{}, value interface{}) {
-
 	cache.items.Store(key, item{
 		data: value,
 	})
@@ -74,11 +71,9 @@ func (cache *Cache) Close() {
 	cache.items = sync.Map{}
 }
 
-// =========================================
-
-//var c = cache.New()
 var c = NewCache()
 
+// Subscribes client from a geven topic
 func Subscribe(topic string, client *websocket.Conn) {
 	clients, _ := c.Get(topic)
 	if clients == nil {
@@ -89,6 +84,7 @@ func Subscribe(topic string, client *websocket.Conn) {
 	c.Set(topic, clients)
 }
 
+// Unsubscribe delete client from topic
 func Unsubscribe(topic string, client *websocket.Conn) {
 
 	clients, _ := c.Get(topic)
@@ -101,6 +97,7 @@ func Unsubscribe(topic string, client *websocket.Conn) {
 
 }
 
+// Publish send message to all subsecribed clients
 func Publish(i int, topic string, data []byte) {
 	clients, found := c.Get(topic)
 	if found == false {
@@ -108,7 +105,6 @@ func Publish(i int, topic string, data []byte) {
 		return
 	}
 	for c := range clients.(map[*websocket.Conn]bool) {
-
 		if err := c.WriteMessage(i, data); err != nil {
 			fmt.Println(err)
 		}
