@@ -1,10 +1,10 @@
-module github.com/bashery/im
+module github.com/baxiry/im
 
-go 1.19
+go 1.23.1
 
 require (
-	github.com/gorilla/websocket v1.5.0
-	github.com/tidwall/gjson v1.14.0
+	github.com/gorilla/websocket v1.5.3
+	github.com/tidwall/gjson v1.18.0
 )
 
 require (

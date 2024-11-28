@@ -4,14 +4,19 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/bashery/im"
+	"github.com/baxiry/im"
 	"github.com/gorilla/websocket"
 )
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
 	//if r.Header.Get("Origin")!="http://"+r.Host {http.Error(w,"Origin not allowed",-1);return}
 
-	conn, err := websocket.Upgrade(w, r, w.Header(), 1024, 1024)
+	var upgrader = websocket.Upgrader{
+		ReadBufferSize:  1024,
+		WriteBufferSize: 1024,
+	}
+
+	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		http.Error(w, "Could not open websocket connection", 404)
 	}

@@ -10,7 +10,6 @@ import (
 // Cache stores ws.connections.
 type Cache struct {
 	items sync.Map
-	close chan struct{}
 }
 
 // An item represents ws.connections.
@@ -20,10 +19,7 @@ type item struct {
 
 // New creates a new cache
 func NewCache() *Cache {
-	cache := &Cache{
-		close: make(chan struct{}),
-	}
-	return cache
+	return &Cache{}
 }
 
 // Get gets the value for the given key.
@@ -67,14 +63,13 @@ func (cache *Cache) Delete(key interface{}) {
 
 // Close closes the cache and frees up resources.
 func (cache *Cache) Close() {
-	cache.close <- struct{}{}
 	cache.items = sync.Map{}
 }
 
 var c = NewCache()
 
 // Subscribes client from a geven topic
-func Subscribe(topic string, client *websocket.Conn) {
+func subscribe(topic string, client *websocket.Conn) {
 	clients, _ := c.Get(topic)
 	if clients == nil {
 		clients = make(map[*websocket.Conn]bool)
@@ -84,8 +79,8 @@ func Subscribe(topic string, client *websocket.Conn) {
 	c.Set(topic, clients)
 }
 
-// Unsubscribe delete client from topic
-func Unsubscribe(topic string, client *websocket.Conn) {
+// unsubscribe delete client from topic
+func unsubscribe(topic string, client *websocket.Conn) {
 
 	clients, _ := c.Get(topic)
 	if clients == nil {
@@ -97,8 +92,8 @@ func Unsubscribe(topic string, client *websocket.Conn) {
 
 }
 
-// Publish send message to all subsecribed clients
-func Publish(i int, topic string, data []byte) {
+// publish send message to all subsecribed clients
+func publish(i int, topic string, data []byte) {
 	clients, found := c.Get(topic)
 	if found == false {
 		fmt.Println("no client to send data")

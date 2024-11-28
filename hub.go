@@ -1,7 +1,6 @@
 package im
 
 import (
-	"fmt"
 	"log"
 	"sync"
 
@@ -24,28 +23,25 @@ func ServeMessages(conn *websocket.Conn) {
 		}
 
 		// un/subscribe if event == un/subscribe.
-		var smsg = string(msg)
-		event := gjson.Get(smsg, "event").String()
-		// TODO continue if no event.
-		channel := gjson.Get(smsg, "channel").String()
-		data := gjson.Get(smsg, "data").String()
+		income := gjson.ParseBytes(msg[1:])
+		event := income.Get("event").Str
+		data := income.Get("data").Raw
+		channel := income.Get("channel").Str
 
-		if event == "message" {
+		switch event {
+		case "message":
+			publish(i, channel, []byte(data))
 
-			Publish(i, channel, []byte(data))
+		case "subscribe":
+			subscribe(channel, conn)
+			msg = append([]byte("successfully subscribed to "), []byte(channel)...)
 
-		} else if event == "subscribe" {
-
-			Subscribe(channel, conn)
-			msg = []byte("subscribe to " + channel + " success!")
-
-		} else if event == "unsubscribe" {
-
-			Unsubscribe(channel, conn)
-			msg = []byte("unsubscribe from " + channel + " success!")
+		case "unsubscribe":
+			unsubscribe(channel, conn)
+			msg = append([]byte("successfully unsubscribed to "), []byte(channel)...)
+		default:
+			log.Println("unkown event: ", event)
 		}
-
-		fmt.Println(string(msg))
 
 		mt.Lock()
 		if err = conn.WriteMessage(i, msg); err != nil {
